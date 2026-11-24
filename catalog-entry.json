@@ -8,7 +8,7 @@
   "source": {
     "type": "github",
     "repo": "Ruiso-Outside/ArasakaFaceplate",
-    "asset": "^piphin-module-conversor-.*\.zip$"
+    "asset": "^piphin-module-conversor-.*\\.zip$"
   },
   "t": {
     "en": { "description": "File converter: images (HEIC, AVIF, SVG, TIFF...), videos, audio, 3D objects (FBX, GLB, OBJ, STL, 3MF...), PDF, data, subtitles and fonts, with preview and batch conversion. Nothing goes to the internet. Runs inside the Central (about 3 MB)." },
