@@ -1,0 +1,41 @@
+{
+  "id": "conversor",
+  "name": "Arasaka Faceplate",
+  "version": "1.0.0",
+  "description": "Conversor de arquivos: imagens, vídeos, áudios, objetos 3D, PDF, dados, legendas e fontes, tudo no seu PC.",
+  "main": "backend.js",
+  "ui": "web/index.html",
+  "icon": "icons/conversor.png",
+  "accent": "#ff0000",
+  "minHub": "1.8.0",
+  "opens": ["image", "video", "audio"],
+  "i18nSkip": ".notranslate",
+  "tools": [
+    {
+      "name": "list_formats",
+      "title": "Ver os formatos",
+      "readOnly": true,
+      "description": "Lista os formatos que o Arasaka Faceplate abre e para quais cada um pode ser convertido (imagens, vídeos, áudios, objetos 3D, PDF, dados, legendas e fontes).",
+      "input": { "type": "object", "properties": {} }
+    },
+    {
+      "name": "convert_files",
+      "title": "Converter arquivos",
+      "description": "Converte um ou mais arquivos do PC para outro formato (ex.: webp, mp4, gif, mp3, glb, stl, pdf, csv). Os originais não mudam e nada é sobrescrito. Devolve o caminho de cada arquivo novo. Vídeos longos podem continuar depois da resposta.",
+      "input": {
+        "type": "object",
+        "properties": {
+          "paths": { "type": "array", "items": { "type": "string" }, "description": "Caminhos completos dos arquivos" },
+          "to": { "type": "string", "description": "Formato de saída, sem ponto. Ex.: png, jpg, webp, ico, pdf, mp4, webm, gif, mp3, wav, glb, obj, stl, json, csv, srt" },
+          "output_dir": { "type": "string", "description": "Pasta de saída (padrão: a escolhida nos ajustes)" },
+          "quality": { "type": "integer", "minimum": 1, "maximum": 100, "description": "Qualidade de imagens JPG e WebP, 1 a 100" },
+          "max_size": { "type": "integer", "description": "Imagens: lado maior em pixels. Vídeos e GIF: altura em pixels" },
+          "fps": { "type": "number", "description": "Quadros por segundo (vídeo e GIF)" },
+          "start": { "type": "number", "description": "Vídeo e áudio: começar neste segundo" },
+          "end": { "type": "number", "description": "Vídeo e áudio: terminar neste segundo" }
+        },
+        "required": ["paths", "to"]
+      }
+    }
+  ]
+}

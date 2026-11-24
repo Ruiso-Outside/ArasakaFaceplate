@@ -1,0 +1,25 @@
+# Tag vX.Y.Z enviada: monta o módulo e publica o Release que a Central instala.
+name: release
+on:
+  push:
+    tags: ["v*"]
+permissions:
+  contents: write
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: A tag bate com o package.json
+        run: test "$GITHUB_REF_NAME" = "v$(node -p 'require("./package.json").version')"
+      - run: node scripts/make-module.js
+      - name: Publicar
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          zip="dist/piphin-module-conversor-${GITHUB_REF_NAME#v}.zip"
+          gh release create "$GITHUB_REF_NAME" "$zip" --draft --verify-tag --title "Arasaka Faceplate ${GITHUB_REF_NAME#v}" --notes "Conversor de arquivos da Arasaka Central: imagens, vídeos, áudios, objetos 3D, PDF, dados, legendas e fontes. Instale pela Central."
+          gh release edit "$GITHUB_REF_NAME" --draft=false

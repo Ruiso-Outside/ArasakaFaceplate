@@ -1,0 +1,30 @@
+{
+  "name": "arasaka-faceplate",
+  "productName": "Arasaka Faceplate",
+  "version": "1.0.0",
+  "description": "Conversor de arquivos da Arasaka Central: imagens, vídeos, áudios, objetos 3D, PDF, dados, legendas e fontes",
+  "private": true,
+  "scripts": {
+    "vendor": "node scripts/make-vendor.js",
+    "icon": "electron scripts/make-icon.js",
+    "module": "node scripts/make-module.js"
+  },
+  "devDependencies": {
+    "@mediabunny/aac-encoder": "^1.66.4",
+    "@mediabunny/ac3": "^1.66.4",
+    "@mediabunny/flac-encoder": "^1.66.4",
+    "@mediabunny/mp3-encoder": "^1.66.4",
+    "electron": "^44.4.5",
+    "esbuild": "^0.28.2",
+    "fast-xml-parser": "^5.12.1",
+    "fflate": "^0.8.3",
+    "gifenc": "^1.0.3",
+    "js-yaml": "^5.5.0",
+    "libheif-js": "^1.23.5",
+    "marked": "^18.3.0",
+    "mediabunny": "^1.66.4",
+    "pdfjs-dist": "^6.5.438",
+    "three": "^0.187.0",
+    "utif2": "^4.1.0"
+  }
+}

@@ -1,0 +1,1 @@
+{ "src": ["module"], "skip": ["vendor"], "extra": ["{0} arquivos convertidos", "{0} falharam", "0,1×"] }

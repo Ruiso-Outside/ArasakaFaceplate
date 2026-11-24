@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data: blob: http://127.0.0.1:* piphin:; media-src 'self' blob: http://127.0.0.1:*; connect-src 'self' blob: data: http://127.0.0.1:*; style-src 'self' 'unsafe-inline' piphin:; script-src 'self' 'wasm-unsafe-eval'; worker-src 'self' blob:; font-src 'self' data: blob: piphin:">
+  <title>Arasaka Faceplate</title>
+  <link rel="stylesheet" href="piphin://ui/kit.css">
+  <link rel="stylesheet" href="piphin://ui/icons.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <nav class="p-subnav" id="tabs">
+    <button class="tab active" data-tab="convert"><i class="i i-repeat"></i>Converter</button>
+    <button class="tab" data-tab="formats"><i class="i i-layers"></i>Formatos</button>
+    <button class="tab" data-tab="settings"><i class="i i-settings"></i>Ajustes</button>
+  </nav>
+
+  <main class="screen" id="tab-convert">
+    <div class="bar">
+      <button class="btn sm primary" id="addFiles" title="Adicionar arquivos (Ctrl+O)"><i class="i i-plus"></i>Adicionar arquivos</button>
+      <button class="btn sm" id="addFolder"><i class="i i-folder-open"></i>Pasta</button>
+      <button class="btn sm" id="addLibrary" title="Usar o que os outros módulos criaram ou baixaram" hidden><i class="i i-library"></i>Da Mídia</button>
+      <div class="grow"></div>
+      <button class="btn sm ghost" id="clearDone" hidden>Tirar os prontos</button>
+      <button class="btn sm ghost" id="clearAll" hidden><i class="i i-trash-2"></i>Limpar a lista</button>
+    </div>
+    <div class="bulk" id="bulk" hidden></div>
+    <div class="work">
+      <section class="list" id="list" tabindex="0" aria-label="Arquivos para converter"></section>
+      <aside class="side" id="side"></aside>
+    </div>
+    <footer class="foot">
+      <div class="dest">
+        <span class="faint">Salvar em</span>
+        <button class="btn sm ghost dest-btn notranslate" id="destBtn" title="Mudar a pasta de saída"></button>
+        <button class="btn sm icon ghost" id="openDest" title="Abrir a pasta de saída"><i class="i i-square-arrow-out-up-right"></i></button>
+      </div>
+      <div class="total"><div class="progress" id="totalBar" hidden><i></i></div><span class="faint num" id="totalText"></span></div>
+      <button class="btn danger" id="cancelAll" hidden><i class="i i-square"></i>Parar</button>
+      <button class="btn primary" id="convert" disabled title="Converter (Ctrl+Enter)"><i class="i i-zap"></i><span id="convertText">Converter</span></button>
+    </footer>
+  </main>
+
+  <main class="screen scroll" id="tab-formats" hidden><div class="p-page"><div class="p-head"><div><h1>Formatos</h1><p>O que o Faceplate abre e para o que converte. Tudo acontece no seu PC: nenhum arquivo vai para a internet.</p></div></div><div class="fmt-grid" id="fmtGrid"></div></div></main>
+
+  <main class="screen scroll" id="tab-settings" hidden>
+    <div class="p-page">
+      <div class="p-head"><div><h1>Ajustes</h1></div></div>
+      <div class="settings">
+        <div class="set"><div><h4>Onde salvar</h4><p>Os originais nunca mudam. Se já existir um arquivo com o mesmo nome, o novo ganha um número.</p></div>
+          <div class="seg" id="outMode"><button data-v="fixed">Pasta fixa</button><button data-v="same">Junto do original</button></div></div>
+        <div class="set"><div class="min0"><h4>Pasta fixa</h4><p class="path notranslate" id="outDirText"></p><p>Arquivos soltos na tela com o mouse sempre vão para esta pasta.</p></div><button class="btn sm" id="pickOut"><i class="i i-folder-open"></i>Mudar</button></div>
+        <div class="set"><div><h4>Colocar na Mídia da Central</h4><p>Imagens, vídeos e áudios convertidos aparecem na Mídia e podem ser usados nos outros módulos.</p></div><label class="switch"><input type="checkbox" id="optLib"><span></span></label></div>
+        <div class="set"><div><h4>Avisar quando terminar</h4><p>Notificação quando a conversão acaba e você está em outra tela.</p></div><label class="switch"><input type="checkbox" id="optNotify"><span></span></label></div>
+        <div class="set"><div><h4>Opções dos formatos</h4><p>Qualidade, tamanho e o resto voltam para o padrão.</p></div><button class="btn sm" id="resetOpts"><i class="i i-rotate-ccw"></i>Restaurar</button></div>
+      </div>
+    </div>
+  </main>
+
+  <div class="drop" id="drop" hidden><div><i class="i i-download"></i><b>Solte para converter</b><span>Arquivos e pastas</span></div></div>
+  <div class="toasts" id="toasts"></div>
+
+  <script src="js/formats.js"></script>
+  <script src="js/core.js"></script>
+  <script src="js/image.js"></script>
+  <script src="js/av.js"></script>
+  <script src="js/model.js"></script>
+  <script src="js/docs.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

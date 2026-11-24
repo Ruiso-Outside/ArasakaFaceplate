@@ -1,0 +1,17 @@
+{
+  "id": "conversor",
+  "name": "Arasaka Faceplate",
+  "description": "Conversor de arquivos: imagens (HEIC, AVIF, SVG, TIFF...), vídeos, áudios, objetos 3D (FBX, GLB, OBJ, STL, 3MF...), PDF, dados, legendas e fontes, com prévia e várias conversões de uma vez. Nada vai para a internet. Roda dentro da Central (cerca de 3 MB).",
+  "category": "Criação",
+  "icon": "https://raw.githubusercontent.com/Ruiso-Outside/ArasakaFaceplate/main/module/icons/conversor.png",
+  "accent": "#ff0000",
+  "source": {
+    "type": "github",
+    "repo": "Ruiso-Outside/ArasakaFaceplate",
+    "asset": "^piphin-module-conversor-.*\.zip$"
+  },
+  "t": {
+    "en": { "description": "File converter: images (HEIC, AVIF, SVG, TIFF...), videos, audio, 3D objects (FBX, GLB, OBJ, STL, 3MF...), PDF, data, subtitles and fonts, with preview and batch conversion. Nothing goes to the internet. Runs inside the Central (about 3 MB)." },
+    "es": { "description": "Conversor de archivos: imágenes (HEIC, AVIF, SVG, TIFF...), videos, audios, objetos 3D (FBX, GLB, OBJ, STL, 3MF...), PDF, datos, subtítulos y fuentes, con vista previa y conversión por lotes. Nada va a internet. Funciona dentro de la Central (unos 3 MB)." }
+  }
+}
